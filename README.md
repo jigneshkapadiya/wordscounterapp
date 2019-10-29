@@ -11,6 +11,6 @@ JDK 8 : [Here is a guide on how to install JDK8](https://docs.oracle.com/javase/
 MongoDB 4.2.0 [Here is a guide on how to install MongoDB 4.2 on windows](https://docs.mongodb.com/manual/tutorial/install-mongodb-on-windows/).
 
 
-### Installing
+### Usage
 
 ### Deployment
