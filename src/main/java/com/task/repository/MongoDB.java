@@ -4,7 +4,7 @@ import com.mongodb.MongoClient;
 import com.mongodb.MongoClientURI;
 
 /**
- * MongoDB class
+ * MongoDB class helps to create a singleton object of MongoClient
  * @author Jignesh
  * @version 1.0
  * 

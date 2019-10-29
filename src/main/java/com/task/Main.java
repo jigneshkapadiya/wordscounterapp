@@ -16,9 +16,11 @@ import java.util.concurrent.ThreadPoolExecutor;
 import com.task.repository.Constants;
 import com.task.repository.MongoDB;
 import com.task.repository.MongoDBCollection;
-import com.task.repository.MongoDBConnection;
-
-
+/**
+ * Main - start execution of the program here
+ * @author Jignesh
+ *
+ */
 public class Main
 {
 	public static void main(String args[])
@@ -34,6 +36,7 @@ public class Main
 		System.out.println("Reading file...");
 		ThreadPoolExecutor executer = (ThreadPoolExecutor) Executors.newFixedThreadPool(20);
 		Instant countStart = Instant.now();
+
 		try(BufferedReader br = new BufferedReader( new InputStreamReader(new FileInputStream(commandsMap.get("source")),"UTF-8")))
 		{
 			WorkerThread workerThread = new WorkerThread();
@@ -53,6 +56,11 @@ public class Main
 					workerThread = new WorkerThread();
 					linesList = new ArrayList<String>();
 				}
+			}
+			if(linesList.size()>0)
+			{
+				workerThread.linesList = linesList;
+				executer.execute(workerThread);
 			}
 			br.close();
 		}
@@ -85,7 +93,7 @@ public class Main
 		System.out.println("Bye");
 		}
 		finally {
-			MongoDBConnection.getMongoClient().close();
+			MongoDB.getMongoClient().close();
 		}
 	}
 }

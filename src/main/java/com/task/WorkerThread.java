@@ -33,15 +33,15 @@ public class WorkerThread extends Thread
 	{
 		Map<String, Long> map = Stream.of(linesList) // Stream<Stream<String>>
 	            .flatMap(Collection::stream) // Stream<String> 
-	            .flatMap(Pattern.compile("\\P{L}+")::splitAsStream)
+	            .flatMap(Pattern.compile("\\P{L}+")::splitAsStream).filter(w->!w.isEmpty())
 	            .collect(groupingBy(name -> name, counting()));
 
 		System.out.println("map size="+map.size());
 		List<WriteModel<Document>> list = new ArrayList<WriteModel<Document>>();
 		for(Map.Entry<String, Long> entry: map.entrySet())
 		{
-			list.add(new UpdateOneModel<>(new Document("word",entry.getKey())
-									, new Document("$inc", new Document("count",entry.getValue()))
+			list.add(new UpdateOneModel<>(new Document(Constants.WordField,entry.getKey())
+									, new Document("$inc", new Document(Constants.CountField,entry.getValue()))
 									, new UpdateOptions().upsert(true)
 									));
 		}
