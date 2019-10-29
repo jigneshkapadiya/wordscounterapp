@@ -449,5 +449,40 @@ db.wordscount.count()
 
 db.wordscount.drop()
 db.dropDatabase()
+//----------------------------------------------------
+
+
+use nothreadfinal
+//db.createCollection("wordscount")
+db.wordscount.find({},{"_id":0}).sort({"count":-1})
+db.wordscount.aggregate([{$group: {_id:"$word",count:{$sum:1}}},{$match: {count:{$gt:1}}}])
+db.wordscount.count()
+//db.wordscount.remove({})
+db.wordscount.ensureIndex({"word":1})
+db.wordscount.getIndexes()
+db.dropDatabase()
+
+count = 213248
+{ "word" : "the", "count" : NumberLong(206267) }
+{ "word" : "of", "count" : NumberLong(157796) }
+{ "word" : "and", "count" : NumberLong(112235) }
+{ "word" : "gt", "count" : NumberLong(108532) }
+{ "word" : "lt", "count" : NumberLong(108435) }
+{ "word" : "ref", "count" : NumberLong(92148) }
+{ "word" : "quot", "count" : NumberLong(90393) }
+{ "word" : "in", "count" : NumberLong(81589) }
+{ "word" : "to", "count" : NumberLong(69756) }
+{ "word" : "a", "count" : NumberLong(60525) }
+{ "word" : "The", "count" : NumberLong(40921) }
+{ "word" : "amp", "count" : NumberLong(35807) }
+{ "word" : "title", "count" : NumberLong(34383) }
+{ "word" : "s", "count" : NumberLong(33826) }
+{ "word" : "url", "count" : NumberLong(30736) }
+{ "word" : "is", "count" : NumberLong(30519) }
+{ "word" : "first", "count" : NumberLong(27797) }
+{ "word" : "web", "count" : NumberLong(27232) }
+{ "word" : "name", "count" : NumberLong(26995) }
+{ "word" : "as", "count" : NumberLong(26609) }
+
 
 
