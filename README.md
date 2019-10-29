@@ -13,6 +13,8 @@ MongoDB 4.2.0 [Here is a guide on how to install MongoDB 4.2 on windows](https:/
 
 ### Usage
 Download wordscounterapp.jar file and run it with below parameters
+'''
 java –Xmx8192m -jar wordscounterapp.jar –source dump.xml –mongo hostname:port
+'''
 
 ### Contributions
