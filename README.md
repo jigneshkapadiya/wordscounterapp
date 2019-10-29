@@ -5,8 +5,12 @@ wordscounterapp analyses a file and counts unique words. it saves word count in 
 ## Getting Started
 
 ### Prerequisites
+```
 JDK 8
+```
+```
 MongoDB 4.2.0
+```
 
 ### Installing
 
