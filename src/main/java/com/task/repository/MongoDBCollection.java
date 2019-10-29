@@ -1,5 +1,7 @@
 package com.task.repository;
 
+import java.util.function.Consumer;
+
 import org.bson.Document;
 
 import com.mongodb.client.MongoCollection;
@@ -42,4 +44,21 @@ public class MongoDBCollection
 		MongoDB.getMongoClient().getDatabase(Constants.MongoDBDatabase).getCollection(Constants.MongoDBCollection)
 		.createIndex(Indexes.ascending(Constants.WordField), new IndexOptions().unique(true));
 	}
+	public static void mostCommon()
+	{
+		System.out.print("Most common word in the file is : ");
+		Consumer<Document> consumer = d-> System.out.println(d.get(Constants.WordField)+" ("+d.get(Constants.CountField)+")");
+		MongoDB.getMongoClient().getDatabase(Constants.MongoDBDatabase).getCollection(Constants.MongoDBCollection)
+		.find(new Document()).sort(new Document(Constants.CountField, -1)).limit(1)
+		.forEach(consumer);
+	}
+	public static void leastCommon()
+	{
+		System.out.print("Least common word in the file is : ");
+		Consumer<Document> consumer = d-> System.out.println(d.get(Constants.WordField)+" ("+d.get(Constants.CountField)+")");
+		MongoDB.getMongoClient().getDatabase(Constants.MongoDBDatabase).getCollection(Constants.MongoDBCollection)
+		.find(new Document()).sort(new Document(Constants.CountField, 1)).limit(1)
+		.forEach(consumer);
+	}
 }
+

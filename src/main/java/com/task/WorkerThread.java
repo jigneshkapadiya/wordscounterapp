@@ -36,7 +36,7 @@ public class WorkerThread extends Thread
 	            .flatMap(Pattern.compile("\\P{L}+")::splitAsStream).filter(w->!w.isEmpty())
 	            .collect(groupingBy(name -> name, counting()));
 
-		System.out.println("map size="+map.size());
+		//System.out.println("map size="+map.size());
 		List<WriteModel<Document>> list = new ArrayList<WriteModel<Document>>();
 		for(Map.Entry<String, Long> entry: map.entrySet())
 		{
@@ -45,7 +45,7 @@ public class WorkerThread extends Thread
 									, new UpdateOptions().upsert(true)
 									));
 		}
-		System.out.println("list size="+list.size());
-		MongoDB.getMongoClient().getDatabase("wordsdb").getCollection("wordscount").bulkWrite(list,new BulkWriteOptions().ordered(false));
+		//System.out.println("list size="+list.size());
+		MongoDB.getMongoClient().getDatabase(Constants.MongoDBDatabase).getCollection(Constants.MongoDBCollection).bulkWrite(list,new BulkWriteOptions().ordered(false));
 	}
 }

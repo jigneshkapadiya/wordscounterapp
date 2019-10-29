@@ -437,15 +437,22 @@ db.dropDatabase()
 //----------------------------------------------------
 
 use wordsdb
-db.createCollection("xyz")
+//db.createCollection("xyz")
 show collections
 
 db.wordscount.createIndex({"word":"hashed"})
 db.wordscount.getIndexes()
 
 db.wordscount.find({},{"_id":0}).sort({"count":-1})
-db.wordscount.aggregate([{$group: {_id:"$word",count:{$sum:1}}},{$match: {count:{$gt:1}}}])
+db.wordscount.find({},{"_id":0}).sort({"count":-1}).limit(1)
+db.wordscount.find({},{"_id":0}).sort({"count":1}).limit(1)
+db.wordscount.aggregate([{$group: {_id:"$word",count:{$sum:1}}},{$match: {count:{$gt:1}}}], {allowDiskUse:true})
 db.wordscount.count()
+
+use admin
+db.runCommand({getParameter:1,"internalQueryExecMaxBlockingSortBytes" : 1 })
+db.adminCommand({setParameter: 1, internalQueryExecMaxBlockingSortBytes:309715200})
+
 
 db.wordscount.drop()
 db.dropDatabase()
@@ -485,4 +492,4 @@ count = 213248
 { "word" : "as", "count" : NumberLong(26609) }
 
 
-
+db.version()

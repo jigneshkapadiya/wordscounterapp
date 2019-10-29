@@ -16,6 +16,7 @@ import java.util.concurrent.ThreadPoolExecutor;
 import com.task.repository.Constants;
 import com.task.repository.MongoDB;
 import com.task.repository.MongoDBCollection;
+import com.task.repository.MongoDBConnection;
 /**
  * Main - start execution of the program here
  * @author Jignesh
@@ -49,7 +50,7 @@ public class Main
 			{
 				linesList.add(readLine);
 				lineCount++;
-				if(lineCount%50000 == 0)
+				if(lineCount%10000 == 0)
 				{
 					workerThread.linesList = linesList;
 					executer.execute(workerThread);
@@ -87,10 +88,11 @@ public class Main
 		System.out.println("Count start = "+countStart.toString());
 		System.out.println("Count end = "+countEnd.toString());
 		Duration timeElapsed = Duration.between(countStart, countEnd);
-		System.out.println("Time taken "+timeElapsed.toMillis()+ " milliseconds");
+		//System.out.println("Time taken "+timeElapsed.toMillis()+ " milliseconds");
 		System.out.println("Time taken "+timeElapsed.getSeconds()+ " seconds");
 		System.out.println("No of lineCount = "+lineCount);
-		System.out.println("Bye");
+		MongoDBCollection.mostCommon(); // prints most common word in the file
+		MongoDBCollection.leastCommon();
 		}
 		finally {
 			MongoDB.getMongoClient().close();
