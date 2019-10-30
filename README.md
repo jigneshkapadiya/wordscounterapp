@@ -19,9 +19,13 @@ java –Xmx8192m -jar wordscounterapp.jar –source dump.xml –mongo hostname:p
 ```
 ### How to run
 Fork the repository
+<br>
 Clone the repository
 ```
 git clone https://github.com/jigneshcoder/wordscounterapp.git
 ```
+
+Open wordscounterapp in Eclipse (Import existing Maven project)
+
 
 ### Contributions
