@@ -17,5 +17,11 @@ Download wordscounterapp.jar file and run it with below parameters
 ```
 java –Xmx8192m -jar wordscounterapp.jar –source dump.xml –mongo hostname:port
 ```
+### How to run
+Fork the repository
+Clone the repository
+```
+git clone https://github.com/jigneshcoder/wordscounterapp.git
+```
 
 ### Contributions
