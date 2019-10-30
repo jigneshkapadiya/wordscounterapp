@@ -26,6 +26,15 @@ git clone https://github.com/jigneshcoder/wordscounterapp.git
 ```
 
 Open wordscounterapp in Eclipse (Import existing Maven project)
+<br>
+From eclipse, build the project using goals "clean package"
+<br>
+If the build is successful it will create two executable jar files
+```
+wordscounterapp.jar
+wordscounterapp-jar-with-dependencies.jar
+```
+
 
 
 ### Contributions
