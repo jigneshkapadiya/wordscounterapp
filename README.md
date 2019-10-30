@@ -40,9 +40,15 @@ Run the wordscounterapp-jar-with-dependencies.jar with below parameters
 ```
 java –Xmx8192m -jar wordscounterapp-jar-with-dependencies.jar –source dump.xml –mongo hostname:port
 ```
-here dump.xml is any file of the text located in the computer (e.g. D:/testfile/dump.xml)
+here dump.xml is any file of the text located in the computer 
+```
+(e.g. D:/testfile/dump.xml)
+```
 <br>
-hostname:port is name of the MongoDB server host and the port. (e.g. localhost:27017  or localhost:27017,localhost:27020)
+hostname:port is name of the MongoDB server host and the port. 
+```
+(e.g. localhost:27017  or localhost:27017,localhost:27020)
+```
 
 
 ### Contributions
