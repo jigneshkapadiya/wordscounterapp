@@ -10,7 +10,7 @@ JDK 8 : [Here is a guide on how to install JDK8](https://docs.oracle.com/javase/
 <br>
 MongoDB 4.2.0 [Here is a guide on how to install MongoDB 4.2 on windows](https://docs.mongodb.com/manual/tutorial/install-mongodb-on-windows/).
 
-Open Task.docx file to  for steps to create sharded cluster
+Open Task.docx file to  for steps to create sharded cluster after MongoDB installation
 
 ### Usage
 Download wordscounterapp.jar file and run it with below parameters
