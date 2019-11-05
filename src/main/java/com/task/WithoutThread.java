@@ -85,18 +85,18 @@ public class WithoutThread
 				}
 				
 				//System.out.println(readLine);
-				/*words = readLine.split("\\P{L}+");   // \\p{L}+ \\P{Alpha}+  \\W+  \\P{L}+
-				for (String string : words)
-				{
-					if(!string.isEmpty())
-					{
-						wordCount.merge(string, 1, Integer::sum);
-					filter = new Document("word",string);
-//					modifiedObject.put("$inc", new BasicDBObject().append("Count", 1));
-					collection.updateOne(filter, update, updateOptions);
-					}
-				}
-				*/
+//				words = readLine.split("\\P{L}+");   // \\p{L}+ \\P{Alpha}+  \\W+  \\P{L}+
+				//for (String string : words)
+//				{
+//					if(!string.isEmpty())
+//					{
+//						wordCount.merge(string, 1, Integer::sum);
+//					filter = new Document("word",string);
+///////					modifiedObject.put("$inc", new BasicDBObject().append("Count", 1));
+//					collection.updateOne(filter, update, updateOptions);
+//					}
+//				}
+
 			}
 			
 			if (linesList.size()>0)
