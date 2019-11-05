@@ -59,7 +59,7 @@ public class WithoutThread
 		//try(BufferedReader b = new BufferedReader(new FileReader(file)))
 		try(BufferedReader b = new BufferedReader( new InputStreamReader(new FileInputStream("D:/testfile/new.xml"),"UTF-8")))
 		{
-			while((readLine = b.readLine())!= null)
+			/*while((readLine = b.readLine())!= null)
 			{
 				linesList.add(readLine);
 				lineCount++;
@@ -98,7 +98,7 @@ public class WithoutThread
 //				}
 
 			}
-			
+			*/
 			if (linesList.size()>0)
 			{
 				Map<String, Long> map = Stream.of(linesList) // Stream<Stream<String>>
